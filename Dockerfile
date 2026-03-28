@@ -28,13 +28,8 @@ RUN useradd -m -u 1000 pytorch && \
 USER pytorch
 WORKDIR /home/pytorch
 
-# Install PyTorch based on architecture
-# Install CUDA dependencies if needed for CUDA runtime
+# Copy pre-installed packages and install dependencies directly
 COPY --from=builder /home/pytorch/.local /home/pytorch/.local
-
-COPY pyproject.toml ./
-RUN uv pip install --system -e . --no-deps || true
-
 RUN python - <<'PY'
 import torch
 print('=' * 50)
