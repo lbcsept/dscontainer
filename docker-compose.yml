@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  torch-env:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ARCH: linux/arm64
+        GPU_TYPE: cuda
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=0
+    stdin_open: true
+    tty: true

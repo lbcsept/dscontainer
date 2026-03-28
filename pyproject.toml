@@ -1,0 +1,30 @@
+[project]
+name = "deep-learning-env"
+version = "1.0.0"
+description = "Multi-architecture Docker environment with Python 3.12, PyTorch, and HuggingFace transformers"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+    "accelerate>=0.20.0",
+    "datasets>=2.0.0",
+    "tiktoken>=0.5.0",
+    "regex>=2023.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling>=1.0.0"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+]
